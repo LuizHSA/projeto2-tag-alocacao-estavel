@@ -35,7 +35,7 @@ def separarDadosEntrada(arquivoEntrada='entradaProj2_25TAG.txt'):
                 else:
                     fAlunos.write(linha)
 
-            print(f"✔ Arquivos '{arquivoProjetos}' e '{arquivoAlunos}' criados com sucesso!")
+            print(f"Arquivos {arquivoProjetos} e {arquivoAlunos} criados com sucesso!")
 
     except FileNotFoundError:
         print(f"Erro: O arquivo de entrada '{arquivoEntrada}' não foi encontrado.")
