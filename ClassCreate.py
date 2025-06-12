@@ -31,7 +31,7 @@ class Aluno:
 # --- Função de Carregamento e Parsing ---
 
 def carregarDados(diretorioInputs):
-
+  
     listaDeProjetos = []
     listaDeAlunos = []
     
