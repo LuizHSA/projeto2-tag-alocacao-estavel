@@ -69,3 +69,5 @@ if __name__ == "__main__":
         alunos, projetos = galeShapley(alunos, projetos)
 
         imprimirResultados(projetos)
+
+        
