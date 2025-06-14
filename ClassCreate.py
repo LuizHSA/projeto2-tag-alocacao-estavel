@@ -21,6 +21,7 @@ class Aluno:
         self.preferencias = preferencias # Deve ser uma lista de strings [P1, P2, ...]
         self.nota = int(nota)
         # Atributos para controlar o estado do aluno no algoritmo
+        self.ordemDeEscolha = {proj: idx + 1 for idx, proj in enumerate(self.preferencias)}
         self.proximaPropostaIdx = 0
         self.projetoAlocado = None
 

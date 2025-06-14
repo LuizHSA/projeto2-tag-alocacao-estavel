@@ -1,3 +1,6 @@
+import networkx as nx
+import matplotlib as plt
+import pandas as pd
 from ClassCreate import Aluno, Projeto, carregarDados
 
 def galeShapley(listaDeAlunos, listaDeProjetos):
@@ -41,6 +44,31 @@ def galeShapley(listaDeAlunos, listaDeProjetos):
 
     return listaDeAlunos, listaDeProjetos    
 
+def tratarDados(listaDeAlunos, listaDeProjetos):
+    dp, da = [], []
+
+    for i in listaDeAlunos:
+        da.append({
+            'id': i.id,
+            'p': i.preferencias,
+            'n': i.nota,
+            'ordem': i.ordemDeEscolha,
+            'next': i.proximaPropostaIdx,
+            'proj': i.projetoAlocado
+        })
+
+    for j in listaDeProjetos:
+        dp.append({
+            'id': j.id,
+            'v': j.vagas,
+            'nM': j.notaMinima,
+            'al': j.alunosAlocados
+        })
+    da = pd.DataFrame(da)
+    dp = pd.DataFrame(dp)
+    print(da.head(), ' ', dp.head())
+    return da, dp
+
 def imprimirResultados(listaDeProjetos):
     
     print("\n--- RESULTADO FINAL DA ALOCAÇÃO ---")
@@ -67,7 +95,7 @@ if __name__ == "__main__":
         print("Dados carregados com sucesso. Iniciando o algoritmo de emparelhamento...")
         
         alunos, projetos = galeShapley(alunos, projetos)
-
+        tratarDados(alunos, projetos)
         imprimirResultados(projetos)
 
         
