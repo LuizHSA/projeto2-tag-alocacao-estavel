@@ -42,7 +42,6 @@ def galeShapley(DadosAlunos, DadosProjetos):
     # Dicionário para rastrear as alocações atuais de cada projeto
     alocacoes_projetos = {proj_id: [] for proj_id in DadosProjetos.index}
 
-    # --- Loop Principal ---
     while alunos_livres:
         aluno_id = alunos_livres.pop(0)
         
@@ -130,7 +129,6 @@ if __name__ == "__main__":
         print("Dados carregados com sucesso. Iniciando o algoritmo de emparelhamento...")
 
         alunos, projetos = tratarDados(alunos, projetos)
-        #imprimirResultados(alunos, projetos)
         DadosProcessados = galeShapley(alunos, projetos)
         imprimirResultados(DadosProcessados, projetos)
 
